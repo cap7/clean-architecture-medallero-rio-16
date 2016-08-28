@@ -153,15 +153,15 @@ public class ListarMedalleroAdapter extends RecyclerView.Adapter<ListarMedallero
         }
 
         private void getImageMedallaOro(ImageView imageView){
-            Picasso.with(getContext()).load(R.drawable.oro).fit().centerCrop().into(imageView);
+            Picasso.with(getContext()).load(R.mipmap.ic_med_oro).fit().centerCrop().into(imageView);
         }
 
         private void getImageMedallaPlata(ImageView imageView){
-            Picasso.with(getContext()).load(R.drawable.plata).fit().centerCrop().into(imageView);
+            Picasso.with(getContext()).load(R.mipmap.ic_med_plata).fit().centerCrop().into(imageView);
         }
 
         private void getImageMedallaBronce( ImageView imageView){
-            Picasso.with(getContext()).load(R.drawable.bronce).fit().centerCrop().into(imageView);
+            Picasso.with(getContext()).load(R.mipmap.ic_med_bronce).fit().centerCrop().into(imageView);
         }
 
         private void getImageTotalMedalla( ImageView imageView){

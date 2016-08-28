@@ -3,10 +3,11 @@
     package="com.cap.medallerorio2016">
 
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name=".MedalleroRio2016App"
         android:allowBackup="true"
+        android:name=".MedalleroRio2016App"
         android:icon="@mipmap/ic_app"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">

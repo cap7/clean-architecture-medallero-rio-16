@@ -5,6 +5,7 @@ import android.util.Log;
 import com.cap.domain.interactor.DefaultSubscriber;
 import com.cap.domain.interactor.UseCase;
 import com.cap.domain.model.BaseMedallero;
+import com.cap.medallerorio2016.di.PerActivity;
 import com.cap.medallerorio2016.view.DatosMedalleroView;
 import com.cap.medallerorio2016.viewmodel.BaseMedalleroModel;
 import com.cap.medallerorio2016.viewmodel.mapper.BaseMedalleroModelDataMapper;
@@ -15,6 +16,7 @@ import javax.inject.Named;
 /**
  * Created by CAP on 15/08/2016.
  */
+@PerActivity
 public class ListarMedalleroPresenter {
 
     private final UseCase listarMedalleroInteractor;

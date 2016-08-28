@@ -3,6 +3,7 @@ package com.cap.medallerorio2016.view.ui.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.cap.medallerorio2016.R;
 import com.cap.medallerorio2016.di.HasComponent;
@@ -28,16 +29,21 @@ public class ListarMedalleroActivity extends BaseActivity implements HasComponen
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_listar_medallero;
+        return R.layout.activity_main;
     }
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        initalizeInjector();
+    }
 
     @Override
     public void initView() {
-        super.initView();
-        initalizeInjector();
-        Bundle bundle = getIntent().getExtras();
-        showFragmentBundle(new ListarMedalleroFragment(),R.id.fragment_listar_medallero,bundle);
+            super.initView();
+
+            Bundle bundle = getIntent().getExtras();
+            showFragmentBundle(new ListarMedalleroFragment(), R.id.fragment_main, bundle);
     }
 
     private void initalizeInjector(){

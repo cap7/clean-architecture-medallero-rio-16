@@ -1,5 +1,7 @@
 package com.cap.data.net;
 
+import com.cap.data.BuildConfig;
+
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
@@ -30,7 +32,7 @@ public class ApiConnectionImpl implements ApiConnection{
         client = new OkHttpClient.Builder().addInterceptor(new LogInterceptor()).build();
         /*--------*/
         retrofit = new Retrofit.Builder()
-                .baseUrl("http://olympics.atelerix.co/")
+                .baseUrl(BuildConfig.HOST)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .client(client)

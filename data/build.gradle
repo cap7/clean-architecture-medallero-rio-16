@@ -13,8 +13,12 @@ android {
     }
     buildTypes {
         release {
+            buildConfigField 'String', 'HOST' , '"http://olympics.atelerix.co/"'
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            buildConfigField 'String', 'HOST' , '"http://olympics.atelerix.co/"'
         }
     }
     compileOptions {

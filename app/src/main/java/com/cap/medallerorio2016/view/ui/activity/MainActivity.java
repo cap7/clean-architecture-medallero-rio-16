@@ -1,5 +1,7 @@
 package com.cap.medallerorio2016.view.ui.activity;
 
+import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 
 import com.cap.medallerorio2016.R;
@@ -20,8 +22,8 @@ public class MainActivity extends BaseActivity implements HasComponent<ListarMed
 
     private ListarMedalleroComponent listarMedalleroComponent;
 
-    @BindView(R.id.ivolimpiadasrio2016)
-    ImageView logoRio2016;
+    /*@BindView(R.id.ivolimpiadasrio2016)
+    ImageView logoRio2016;*/
 
     @Override
     protected int getLayoutId() {
@@ -29,10 +31,16 @@ public class MainActivity extends BaseActivity implements HasComponent<ListarMed
     }
 
     @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        //Picasso.with(this).load(R.drawable.rio2016).into(logoRio2016);
+        initalizeInjector();
+    }
+
+    @Override
     public void initView() {
         super.initView();
-        Picasso.with(this).load(R.drawable.rio2016).into(logoRio2016);
-        initalizeInjector();
+
         showFragment(new MainFragment(), R.id.fragment_main);
     }
 
