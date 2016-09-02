@@ -40,5 +40,6 @@ public class Navigator {
         }catch (Exception e){
             Log.e("ERROR NAVIGATOR=",e.toString());
         }
+
     }
 }

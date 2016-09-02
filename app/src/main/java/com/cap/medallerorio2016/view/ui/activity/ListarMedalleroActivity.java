@@ -54,4 +54,5 @@ public class ListarMedalleroActivity extends BaseActivity implements HasComponen
     public ListarMedalleroComponent getComponent() {
         return listarMedalleroComponent;
     }
+
 }

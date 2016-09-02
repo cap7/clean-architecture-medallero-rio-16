@@ -52,5 +52,12 @@ public class MainActivity extends BaseActivity implements HasComponent<ListarMed
     @Override
     public void medalleroListener(BaseMedalleroModel baseMedalleroModel) {
         navigator.navigateToListarMedallero(MainActivity.this,baseMedalleroModel);
+        finish();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i("BOOM","ACTIVITY");
     }
 }
