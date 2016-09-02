@@ -30,25 +30,20 @@ public abstract class BaseActivity extends AppCompatActivity{
         setContentView(getLayoutId());
         this.getApplicationComponent().inject(this);
         bindViews();
-        initView();
+        initView(savedInstanceState);
     }
 
-    public void showFragment(Fragment fragment, int containerViewId){
-        FragmentManager fragmentManager = this.getSupportFragmentManager();
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.add(containerViewId, fragment);
-        transaction.commit();
-    }
-
-    public void showFragmentBundle(Fragment fragment, int containerViewId,Bundle bundle){
+    public void showFragment(Fragment fragment, int containerViewId,Bundle bundle){
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
-        fragment.setArguments(bundle);
+        if(bundle!=null) {
+            fragment.setArguments(bundle);
+        }
         transaction.add(containerViewId, fragment);
         transaction.commit();
     }
 
-    public void initView(){}
+    public void initView(Bundle savedInstanceState){}
 
     protected abstract int getLayoutId();
 

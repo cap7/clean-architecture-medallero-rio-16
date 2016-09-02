@@ -1,5 +1,6 @@
 package com.cap.medallerorio2016.presenter;
 
+import android.support.annotation.NonNull;
 import android.util.Log;
 
 import com.cap.domain.interactor.DefaultSubscriber;
@@ -30,7 +31,7 @@ public class ListarMedalleroPresenter implements Presenter{
         this.baseMedalleroModelDataMapper = baseMedalleroModelDataMapper;
     }
 
-    public void setView(DatosMedalleroView view){
+    public void setView(@NonNull DatosMedalleroView view){
         datosMedalleroView = view;
     }
 

@@ -19,16 +19,20 @@ public class MainActivity extends BaseActivity implements HasComponent<ListarMed
 
     private ListarMedalleroComponent listarMedalleroComponent;
 
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_main;
     }
 
     @Override
-    public void initView() {
-        super.initView();
+    public void initView(Bundle savedInstanceState) {
+        super.initView(savedInstanceState);
         initalizeInjector();
-        showFragment(new MainFragment(), R.id.fragment_main);
+        if(savedInstanceState == null){
+            showFragment(new MainFragment(), R.id.fragment_app,null);
+        }
+
     }
 
     private void initalizeInjector() {

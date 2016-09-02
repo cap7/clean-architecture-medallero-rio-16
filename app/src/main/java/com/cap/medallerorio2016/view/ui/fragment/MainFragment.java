@@ -37,10 +37,10 @@ public class MainFragment extends BaseFragment implements DatosMedalleroView {
 
 
     /*Agreagar setRetainInstance(true) en el constructor del fragment para no tener problemas con la
-    * orientación de la pantalla*/
+    * orientación de la pantalla. Para hacerlo mas reusable se asigno en el BaseFragmet
     public MainFragment() {
         setRetainInstance(true);
-    }
+    }*/
 
     @Override
     protected int getLayoutId() {
@@ -51,7 +51,7 @@ public class MainFragment extends BaseFragment implements DatosMedalleroView {
     @Override
     public void initViewFragment() {
         super.initViewFragment();
-        Picasso.with(getActivity()).load(R.drawable.rio2016).into(logoRio2016);
+        Picasso.with(getContext()).load(R.drawable.rio2016).into(logoRio2016);
     }
 
     @Override
@@ -73,7 +73,9 @@ public class MainFragment extends BaseFragment implements DatosMedalleroView {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         listarMedalleroPresenter.setView(this);
-        listarMedalleroPresenter.initInteractor();
+        if(savedInstanceState == null) {
+            listarMedalleroPresenter.initInteractor();
+        }
     }
 
     @Override

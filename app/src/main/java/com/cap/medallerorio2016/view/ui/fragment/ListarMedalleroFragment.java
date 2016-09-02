@@ -32,10 +32,10 @@ public class ListarMedalleroFragment extends BaseFragment implements ListarMedal
     RecyclerView listaMedallero;
 
     /*Agreagar setRetainInstance(true) en el constructor del fragment para no tener problemas con la
-    * orientación de la pantalla*/
+    * orientación de la pantalla.Para hacerlo mas reusable se asigno en el BaseFragmet
     public ListarMedalleroFragment() {
         setRetainInstance(true);
-    }
+    }*/
 
     @Override
     protected int getLayoutId() {

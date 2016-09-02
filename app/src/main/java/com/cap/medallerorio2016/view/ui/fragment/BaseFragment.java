@@ -23,6 +23,7 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(getLayoutId(),container,false);
+        setRetainInstance(true);
         bindViews();
         initViewFragment();
         return view;

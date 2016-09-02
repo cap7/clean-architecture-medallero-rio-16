@@ -27,17 +27,20 @@ public class ListarMedalleroActivity extends BaseActivity implements HasComponen
         return callingIntent;
     }
 
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_main;
     }
 
     @Override
-    public void initView() {
-            super.initView();
-            initalizeInjector();
+    public void initView(Bundle savedInstanceState) {
+        super.initView(savedInstanceState);
+        initalizeInjector();
+        if(savedInstanceState==null){
             Bundle bundle = getIntent().getExtras();
-            showFragmentBundle(new ListarMedalleroFragment(), R.id.fragment_main, bundle);
+            showFragment(new ListarMedalleroFragment(), R.id.fragment_app, bundle);
+        }
     }
 
     private void initalizeInjector(){
