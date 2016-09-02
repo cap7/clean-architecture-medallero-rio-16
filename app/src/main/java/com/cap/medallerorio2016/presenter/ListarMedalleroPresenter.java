@@ -54,6 +54,7 @@ public class ListarMedalleroPresenter implements Presenter{
 
     }
 
+    /*Cancela el proceso luego de obtener los datos*/
     @Override
     public void destroy() {
         listarMedalleroInteractor.unsubscribe();
