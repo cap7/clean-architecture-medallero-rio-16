@@ -43,8 +43,8 @@ public class ListarMedalleroFragment extends BaseFragment implements ListarMedal
     }
 
     @Override
-    public void initViewFragment() {
-        super.initViewFragment();
+    public void initViewFragment(Bundle savedInstanceState) {
+        super.initViewFragment(savedInstanceState);
         medalleroModel = getArguments().getParcelableArrayList("INTENT_MEDALLERO");
         /*Iterator<MedalleroModel> iterator = medalleroModel.iterator();
         while (iterator.hasNext()) {

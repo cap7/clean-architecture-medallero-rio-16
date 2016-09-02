@@ -49,8 +49,8 @@ public class MainFragment extends BaseFragment implements DatosMedalleroView {
 
 
     @Override
-    public void initViewFragment() {
-        super.initViewFragment();
+    public void initViewFragment(Bundle savedInstanceState) {
+        super.initViewFragment(savedInstanceState);
         Picasso.with(getContext()).load(R.drawable.rio2016).into(logoRio2016);
     }
 
@@ -64,13 +64,13 @@ public class MainFragment extends BaseFragment implements DatosMedalleroView {
 
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.getComponent(ListarMedalleroComponent.class).inject(this);
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(View view,Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         listarMedalleroPresenter.setView(this);
         if(savedInstanceState == null) {
@@ -92,7 +92,7 @@ public class MainFragment extends BaseFragment implements DatosMedalleroView {
     @Override
     public void onDetach() {
         super.onDetach();
-        listarMedalleroPresenter = null;
+        datosMedalleroListener = null;
     }
 
     @Override

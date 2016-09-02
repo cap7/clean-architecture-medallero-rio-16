@@ -55,4 +55,10 @@ public class ListarMedalleroActivity extends BaseActivity implements HasComponen
         return listarMedalleroComponent;
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i("BOOM","ACTIVITY 2");
+    }
+
 }

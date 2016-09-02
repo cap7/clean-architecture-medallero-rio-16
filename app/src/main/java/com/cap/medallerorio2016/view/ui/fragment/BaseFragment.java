@@ -17,23 +17,21 @@ import butterknife.ButterKnife;
  */
 public abstract class BaseFragment extends Fragment {
 
-    View view;
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = inflater.inflate(getLayoutId(),container,false);
+        final View view = inflater.inflate(getLayoutId(),container,false);
         setRetainInstance(true);
-        bindViews();
-        initViewFragment();
+        bindViews(view);
+        initViewFragment(savedInstanceState);
         return view;
     }
 
     protected abstract int getLayoutId();
 
-    private void bindViews(){ButterKnife.bind(this,view);}
+    private void bindViews(View view){ButterKnife.bind(this,view);}
 
-    public void initViewFragment(){}
+    public void initViewFragment(Bundle savedInstanceState){}
 
     protected <C> C getComponent(Class<C> componentType){
         return componentType.cast(((HasComponent<C>)getActivity()).getComponent());

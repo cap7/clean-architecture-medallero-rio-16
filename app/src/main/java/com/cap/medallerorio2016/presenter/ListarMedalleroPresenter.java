@@ -41,7 +41,7 @@ public class ListarMedalleroPresenter implements Presenter{
     }
 
     private void showListarMedallero(BaseMedallero baseMedallero){
-        BaseMedalleroModel baseMedalleroModel = baseMedalleroModelDataMapper.reverseMap(baseMedallero);
+        final BaseMedalleroModel baseMedalleroModel = baseMedalleroModelDataMapper.reverseMap(baseMedallero);
         datosMedalleroView.setDatosListarMedallero(baseMedalleroModel);
     }
 

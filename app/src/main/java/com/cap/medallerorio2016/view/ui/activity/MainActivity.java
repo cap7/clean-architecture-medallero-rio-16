@@ -58,6 +58,6 @@ public class MainActivity extends BaseActivity implements HasComponent<ListarMed
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.i("BOOM","ACTIVITY");
+        Log.i("BOOM","ACTIVITY 1");
     }
 }
