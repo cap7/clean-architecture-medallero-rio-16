@@ -33,15 +33,9 @@ public class ListarMedalleroActivity extends BaseActivity implements HasComponen
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        initalizeInjector();
-    }
-
-    @Override
     public void initView() {
             super.initView();
-
+            initalizeInjector();
             Bundle bundle = getIntent().getExtras();
             showFragmentBundle(new ListarMedalleroFragment(), R.id.fragment_main, bundle);
     }

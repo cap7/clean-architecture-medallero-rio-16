@@ -16,6 +16,7 @@ import com.squareup.picasso.Picasso;
 import javax.inject.Inject;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * Created by CAP on 22/08/2016.
@@ -26,13 +27,32 @@ public class MainFragment extends BaseFragment implements DatosMedalleroView {
         void medalleroListener(BaseMedalleroModel baseMedalleroModel);
     }
 
+    private DatosMedalleroListener datosMedalleroListener;
+
     @Inject
     ListarMedalleroPresenter listarMedalleroPresenter;
 
     @BindView(R.id.ivolimpiadasrio2016)
     ImageView logoRio2016;
 
-    private DatosMedalleroListener datosMedalleroListener;
+
+    /*Agreagar setRetainInstance(true) en el constructor del fragment para no tener problemas con la
+    * orientación de la pantalla*/
+    public MainFragment() {
+        setRetainInstance(true);
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.fragment_main;
+    }
+
+
+    @Override
+    public void initViewFragment() {
+        super.initViewFragment();
+        Picasso.with(getActivity()).load(R.drawable.rio2016).into(logoRio2016);
+    }
 
     @Override
     public void onAttach(Context context) {
@@ -42,16 +62,6 @@ public class MainFragment extends BaseFragment implements DatosMedalleroView {
         }
     }
 
-    @Override
-    public void initViewFragment() {
-        super.initViewFragment();
-        Picasso.with(getActivity()).load(R.drawable.rio2016).into(logoRio2016);
-    }
-
-    @Override
-    protected int getLayoutId() {
-        return R.layout.fragment_main;
-    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -64,6 +74,28 @@ public class MainFragment extends BaseFragment implements DatosMedalleroView {
         super.onViewCreated(view, savedInstanceState);
         listarMedalleroPresenter.setView(this);
         listarMedalleroPresenter.initInteractor();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        listarMedalleroPresenter.destroy();
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        listarMedalleroPresenter = null;
+    }
+
+    @Override
+    public Context getContext() {
+        return getActivity().getApplicationContext();
     }
 
     @Override

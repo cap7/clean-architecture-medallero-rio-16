@@ -17,7 +17,7 @@ import javax.inject.Named;
  * Created by CAP on 15/08/2016.
  */
 @PerActivity
-public class ListarMedalleroPresenter {
+public class ListarMedalleroPresenter implements Presenter{
 
     private final UseCase listarMedalleroInteractor;
     private final BaseMedalleroModelDataMapper baseMedalleroModelDataMapper;
@@ -42,6 +42,22 @@ public class ListarMedalleroPresenter {
     private void showListarMedallero(BaseMedallero baseMedallero){
         BaseMedalleroModel baseMedalleroModel = baseMedalleroModelDataMapper.reverseMap(baseMedallero);
         datosMedalleroView.setDatosListarMedallero(baseMedalleroModel);
+    }
+
+    @Override
+    public void resume() {
+
+    }
+
+    @Override
+    public void pause() {
+
+    }
+
+    @Override
+    public void destroy() {
+        listarMedalleroInteractor.unsubscribe();
+        datosMedalleroView = null;
     }
 
     /*Cuando los datos ya pasaron de la capa de Datos y fueron mapeados a la capa de Dominio,

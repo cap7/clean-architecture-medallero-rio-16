@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Window;
 
 import com.cap.medallerorio2016.MedalleroRio2016App;
 import com.cap.medallerorio2016.di.component.ApplicationComponent;
@@ -26,8 +27,8 @@ public abstract class BaseActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.getApplicationComponent().inject(this);
         setContentView(getLayoutId());
+        this.getApplicationComponent().inject(this);
         bindViews();
         initView();
     }

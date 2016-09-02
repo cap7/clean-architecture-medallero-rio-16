@@ -1,6 +1,8 @@
 package com.cap.medallerorio2016.view.ui.activity;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Window;
 
 import com.cap.medallerorio2016.R;
 import com.cap.medallerorio2016.di.HasComponent;
@@ -23,15 +25,9 @@ public class MainActivity extends BaseActivity implements HasComponent<ListarMed
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        initalizeInjector();
-    }
-
-    @Override
     public void initView() {
         super.initView();
-
+        initalizeInjector();
         showFragment(new MainFragment(), R.id.fragment_main);
     }
 

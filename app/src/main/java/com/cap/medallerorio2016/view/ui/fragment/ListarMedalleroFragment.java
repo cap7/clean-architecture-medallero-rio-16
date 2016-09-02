@@ -31,6 +31,12 @@ public class ListarMedalleroFragment extends BaseFragment implements ListarMedal
     @BindView(R.id.rvmedallero)
     RecyclerView listaMedallero;
 
+    /*Agreagar setRetainInstance(true) en el constructor del fragment para no tener problemas con la
+    * orientación de la pantalla*/
+    public ListarMedalleroFragment() {
+        setRetainInstance(true);
+    }
+
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_listar_medallero;
@@ -61,6 +67,23 @@ public class ListarMedalleroFragment extends BaseFragment implements ListarMedal
     }
 
     @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        listarMedalleroAdapter.setListarMedallero(null);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+    }
+
+
+    @Override
     public void renderListarMedallero(ArrayList<MedalleroModel> datosMedallero) {
         listarMedalleroAdapter.setListarMedallero(datosMedallero);
         listarMedalleroAdapter.notifyDataSetChanged();
@@ -70,11 +93,5 @@ public class ListarMedalleroFragment extends BaseFragment implements ListarMedal
         listaMedallero.setLayoutManager(new LinearLayoutManager(getContext()));
         listaMedallero.setAdapter(listarMedalleroAdapter);
     }
-
-    @Override
-    public Context getContext() {
-        return getActivity().getApplicationContext();
-    }
-
 
 }
